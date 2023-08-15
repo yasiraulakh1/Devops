@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-game
+  namespace: default
+  labels:
+    app: my-game
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-game
+  template:
+    metadata:
+      labels:
+        app: my-game
+    spec:
+      containers:
+      - name: my-game-container
+        image: nginx
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "4Gi"
+            cpu: "250m"
+          limits:
+            memory: "4.5Gi"
+            cpu: "500m"
+

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: my-pv
+spec:
+  capacity:
+    storage: 5Gi
+  volumeMode: Filesystem  # Can be Filesystem or Block
+  accessModes:
+    - ReadWriteOnce  # Access mode(s), e.g., ReadWriteOnce, ReadWriteMany, ReadOnlyMany
+  persistentVolumeReclaimPolicy: Delete  # Retain, Recycle, or Delete
+  storageClassName: "standard"  # StorageClass name (empty for manual provisioning)
+  nfs:
+    server: 192.168.1.171  # NFS server address
+    path: /home/yasir/ShareVol   # NFS exported path
