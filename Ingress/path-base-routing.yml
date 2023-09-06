@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: path-base-routing123
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+ # ingressClassName: nginx-example
+  rules:
+  - http:
+      paths:
+      - path: /service
+        pathType: Exact
+        backend:
+          service:
+            name: my-server
+            port:
+              number: 80
+      - path: /product
+        pathType: Exact
+        backend:
+          service:
+            name: mywebite-service
+            port:
+              number: 80

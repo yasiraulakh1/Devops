@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-game
-  namespace: my-gamens
+  name: my-website
+  namespace: default
   labels:
-    app: my-game
+    app: my-website
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-game
+      app: my-website
   template:
     metadata:
       labels:
-        app: my-game
+        app: my-website
     spec:
       containers:
-      - name: my-game-container
+      - name: my-website-container
         image: yasirzia/my-webserver:latest
         ports:
         - containerPort: 80

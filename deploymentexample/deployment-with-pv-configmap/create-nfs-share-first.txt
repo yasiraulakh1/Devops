@@ -1,0 +1,16 @@
+Share a volume through NFS in Centos
+sudo yum install nfs-utils
+sudo systemctl start nfs-server
+sudo systemctl enable nfs-server
+
+sudo  nano /etc/exports
+/path/to/share client_IP(rw,sync,no_root_squash)
+
+sudo exportfs –ra
+
+sudo firewall-cmd --permanent --zone=public --add-service=nfs
+sudo firewall-cmd --permanent --zone=public --add-service=mountd
+sudo firewall-cmd --permanent --zone=public --add-service=rpc-bind
+sudo firewall-cmd –reload
+
+for kubernetes its enough. Now apply the yaml files. 
