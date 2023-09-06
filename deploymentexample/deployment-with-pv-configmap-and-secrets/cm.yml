@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: test-cm  # Replace with your desired ConfigMap name
+  namespace: default  # Replace with the desired namespace
+data:
+  db-port: "3307"
